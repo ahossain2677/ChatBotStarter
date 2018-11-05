@@ -42,7 +42,7 @@ public class ChatBot3
 	 */	
 	public String getGreeting()
 	{
-		return "Hi, what is up?";
+		return "HELLO.. ?";
 	}
 	
 	/**
@@ -58,18 +58,18 @@ public class ChatBot3
 		
 		if (statement.length() == 0)
 		{
-			response = "Say something, please.";
+			response = "WHAT...? I CAN'T SEE TEXT THAT SMALL ... ";
 		}
 
 		else if (findKeyword(statement, "no") >= 0)
 		{
-			response = "Why so negative?";
+			response = "WHY SO NEGATIVE?";
                 	emotion--;
 		}
 		
 		else if (findKeyword(statement, "levin") >= 0)
 		{
-			response = "More like LevinTheDream amiright?";
+			response = "HEY, I KNOW SOMEONE NAMED LEVIN... OR, I USED TO, I THINK..";
 			emotion++;
 		}
 
@@ -109,7 +109,7 @@ public class ChatBot3
 		}
 		int psn = findKeyword (statement, "I want to", 0);
 		String restOfStatement = statement.substring(psn + 9).trim();
-		return "Why do you want to " + restOfStatement + "?";
+		return "WHY DO YOU WANT TO " + restOfStatement.toUpperCase() + "?";
 	}
 
 	
@@ -269,7 +269,7 @@ public class ChatBot3
 			"So, would you like to go for a walk?",
 			"Could you say that again?"
 	};
-	private String [] randomAngryResponses = {"Bahumbug.", "Harumph", "The rage consumes me!"};
+	private String [] randomAngryResponses = {"Bahumbug.", "Harumph", "......"};
 	private String [] randomHappyResponses = {"H A P P Y, what's that spell?", "Today is a good day", "You make me feel like a brand new pair of shoes."};
-	
+
 }
