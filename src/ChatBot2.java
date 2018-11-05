@@ -129,6 +129,24 @@ public class ChatBot2
 		return "Why do you " + restOfStatement + " me?";
 	}
 	
+	private String Responseforlike(String statement)
+	{
+		//  Remove the final period, if there is one
+		statement = statement.trim();
+		String lastChar = statement.substring(statement.length() - 1);
+				
+		if (lastChar.equals("."))
+		{
+			statement = statement.substring(0, statement
+					.length() - 1);
+		}
+		
+		int psnOfI = findKeyword (statement, "I", 0);
+		int psnOfYou = findKeyword (statement, "like", psnOfI);
+		
+		String restOfStatement = statement.substring(psnOfI + 1, psnOfYou).trim();
+		return "Why do you like " + restOfStatement";
+	}
 
 
 	private int findKeyword(String statement, String goal,
