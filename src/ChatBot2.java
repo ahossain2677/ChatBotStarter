@@ -109,6 +109,7 @@ public class ChatBot2
 	}
 	
 	
+	
 
 	private String transformIYouStatement(String statement)
 	{
@@ -148,6 +149,8 @@ public class ChatBot2
 		return "Why do you like " + restOfStatement";
 	}
 
+	
+	
 
 	private int findKeyword(String statement, String goal,
 			int startPos)
@@ -225,4 +228,43 @@ public class ChatBot2
 	private String [] randomAngryResponses = {"Bahumbug.", "Harumph", "The rage consumes me!"};
 	private String [] randomHappyResponses = {"H A P P Y, what's that spell?", "Today is a good day", "You make me feel like a brand new pair of shoes."};
 	
+	
+	
+	private String getRandomResponse ()
+	{
+		final int NUMBER_OF_RESPONSES = 4;
+		double r = Math.random();
+		int whichResponse = (int)(r*NUMBER_OF_RESPONSES);
+		String response = "";
+	
+	if (whichResponse ==0)
+	{
+		response ="Interesting, tell me more.";
+	}
+else if (whichResponse ==1)
+	{
+		response ="Hmmm.";
+	}	
+else if (whichResponse ==2)
+	{
+		response ="Do you really think so?";
+	}	
+else if (whichResponse ==3)
+	{
+		response ="You don't say.";
+	}
+
+	
+		
+	    
+	    
+	    private String [] randomNeutralResponses = {"Interesting, tell me more",
+			"Hmmm.",
+			"Do you really think so?",
+			"You don't say.",
+			"It's all boolean to me.",
+			"So, would you like to go for a walk?",
+			"Could you say that again?"
+	}
+		
 }
