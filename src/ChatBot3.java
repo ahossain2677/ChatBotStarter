@@ -58,19 +58,73 @@ public class ChatBot3
 		
 		if (statement.length() == 0)
 		{
-			response = "WHAT...? I CAN'T SEE TEXT THAT SMALL ... ";
+			int i = 1;
+			{
+				response = "WHAT...? I CAN'T SEE TEXT THAT SMALL... ";
+				i++;
+			}
+			if (i == 2)
+			{
+				response = "I STILL CAN'T SEE ANYTHING. THEY DON'T GIVE YOU NEW GLASSES WHEN YOU'RE DEAD, YOU KNOW.";
+				i++;
+			}
+			if (i == 3)
+			{
+				response = "SEE, THE REASON WHY I TYPE LIKE THIS IS SO PROBLEMS LIKE THESE CAN BE AVOIDED. EVERYONE CAN SEE TEXT THIS BIG.... I HOPE.";
+				i++;
+			}
+			if ( i == 4)
+			{
+				response = "DID YOU LEAVE...?";
+				i++;
+			}
+			if (i == 5)
+			{
+				response = ".............";
+			}
+
 		}
 
-		else if (findKeyword(statement, "no") >= 0)
+		else if (findKeyword(statement, "know") >= 0)
 		{
-			response = "WHY SO NEGATIVE?";
-                	emotion--;
+			int i = 1;
+			if (i == 1 )
+			{
+				response = "I USED TO KNOW A LOT OF THINGS TOO, BUT I'VE FORGOTTEN A LOT OVER THE PAST YEARS IN THIS DUSTY OLD CEMETERY... TELL ME WHAT YOU KNOW.";
+			}
+			else
+			{
+				response = "GO ON.";
+			}
 		}
 		
-		else if (findKeyword(statement, "levin") >= 0)
+		else if (findKeyword(statement, "folwell") >= 0)
 		{
-			response = "HEY, I KNOW SOMEONE NAMED LEVIN... OR, I USED TO, I THINK..";
+			response = "HEY, I KNOW SOMEONE NAMED FOLWELL... OR, I USED TO, I THINK..";
 			emotion++;
+		}
+
+		else if (findKeyword(statement, "where") >= 0 )
+		{
+			if (findKeyword(statement,"you") >= 0)
+			{
+				if (findKeyword(statement, "live") >= 0)
+				{
+					response = "I LIVE IN THE CEMETERY. BUT IT'S MORE LIKE.... I JUST EXIST AROUND THE AREA. IT'S PLAIN AND UNINTERESTING. SOMETIMES, THERE ARE BIRDS. BUT WHEN IT RAINS, IT GETS ESPECIALLY BORING.";
+				}
+				if (findKeyword(statement,"are") >= 0)
+				{
+					response = "I'M RIGHT HERE AREN'T I?";
+				}
+				else
+				{
+					response = getRandomResponse();
+				}
+			}
+			else
+			{
+				response = getRandomResponse();
+			}
 		}
 
 		// Response transforming I want to statement
@@ -81,7 +135,7 @@ public class ChatBot3
 		else if (findKeyword(statement, "I want",0) >= 0)
 		{
 			response = transformIWantStatement(statement);
-		}	
+		}
 		else
 		{
 			response = getRandomResponse();
@@ -132,7 +186,7 @@ public class ChatBot3
 		}
 		int psn = findKeyword (statement, "I want", 0);
 		String restOfStatement = statement.substring(psn + 6).trim();
-		return "Would you really be happy if you had " + restOfStatement + "?";
+		return "WOULD YOU REALLY BE HAPPY IF YOU HAD " + restOfStatement.toUpperCase() + "?";
 	}
 	
 	
@@ -158,7 +212,7 @@ public class ChatBot3
 		int psnOfYou = findKeyword (statement, "you", psnOfI);
 		
 		String restOfStatement = statement.substring(psnOfI + 1, psnOfYou).trim();
-		return "Why do you " + restOfStatement + " me?";
+		return "WHY DO YOU " + restOfStatement.toUpperCase() + " ME?";
 	}
 	
 
@@ -262,14 +316,14 @@ public class ChatBot3
 	}
 	
 	private String [] randomNeutralResponses = {"Interesting, tell me more",
-			"Hmmm.",
-			"Do you really think so?",
-			"You don't say.",
-			"It's all boolean to me.",
-			"So, would you like to go for a walk?",
-			"Could you say that again?"
+			"I COULD FALL ASLEEP AT ANY GIVEN MOMENT.... OR NOT, SINCE, GHOSTS DON'T REALLY FALL ASLEEP. WE'RE KIND OF OFFLINE FROM EXISTENCE IN GENERAL.",
+			"HMMM.",
+			"YOU DON'T SAY.",
+			"I DON'T EXACTLY KNOW WHAT YOU'RE TALKING ABOUT BUT I'LL PRETEND I DO. JUST FOR THE SAKE OF CONVERSATION.",
+			"SO, HOW'S YOUR LIFE LIKE? OR LIFE IN GENERAL.",
+			"THAT'S FINE I GUESS."
 	};
-	private String [] randomAngryResponses = {"Bahumbug.", "Harumph", "......"};
-	private String [] randomHappyResponses = {"H A P P Y, what's that spell?", "Today is a good day", "You make me feel like a brand new pair of shoes."};
+	private String [] randomAngryResponses = {"I DIDN'T KNOW THERE WERE THAT MANY NEW AND UNIMPORTANT THINGS.", "HMMM.", "......"};
+	private String [] randomHappyResponses = {"IT'S NICE TO BE ABLE TO RECALL THE BETTER THINGS IN LIFE.", "Today is a good day", "You make me feel like a brand new pair of shoes."};
 
 }
