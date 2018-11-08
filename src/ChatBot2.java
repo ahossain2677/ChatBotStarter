@@ -230,32 +230,27 @@ public class ChatBot2
 	
 	
 	
+private boolean findKeyword{"food", "hungry" , "lunch" , "breakfast" , "Dinner"}
 	private String getRandomResponse ()
 	{
-		final int NUMBER_OF_RESPONSES = 4;
+		final int NUMBER_OF_RESPONSES = 3;
 		double r = Math.random();
 		int whichResponse = (int)(r*NUMBER_OF_RESPONSES);
 		String response = "";
 	
 	if (whichResponse ==0)
 	{
-		response ="Interesting, tell me more.";
+		response ="What's your favorite food?";
 	}
 else if (whichResponse ==1)
 	{
-		response ="Hmmm.";
+		response ="What is your least favorite food";
 	}	
 else if (whichResponse ==2)
 	{
-		response ="Do you really think so?";
+		response ="I perfer spicy foods over sweet foods";
 	}	
-else if (whichResponse ==3)
-	{
-		response ="You don't say.";
-	}
 
-	
-		
 	    
 	    
 	    private String [] randomNeutralResponses = {"Interesting, tell me more",
@@ -267,4 +262,25 @@ else if (whichResponse ==3)
 			"Could you say that again?"
 	}
 		
+		private boolean findKeyword{"late", "early" , "on time", "train" , "bus" , "delay" }
+	private String getRandomResponse ()
+	{
+		final int NUMBER_OF_RESPONSES = 3;
+		double r = Math.random();
+		int whichResponse = (int)(r*NUMBER_OF_RESPONSES);
+		String response = "";
+	
+	if (whichResponse ==0)
+	{
+		response ="When did you get to school?";
+	}
+else if (whichResponse ==1)
+	{
+		response ="When do you usually start class?";
+	}	
+else if (whichResponse ==2)
+	{
+		response ="When do you start getting ready for school? ";
+	}	
+
 }
