@@ -29,6 +29,7 @@ public class ChatBot3
 
 
 			statement = in.nextLine();
+			statement = statement.toLowerCase();
 			//getResponse handles the user reply
 			System.out.println(getResponse(statement));
 
@@ -128,13 +129,24 @@ public class ChatBot3
 		}
 
 		// Response transforming I want to statement
-		else if (findKeyword(statement, "I want to", 0) >= 0)
+		else if (findKeyword(statement, "i want to", 0) >= 0)
 		{
 			response = transformIWantToStatement(statement);
 		}
-		else if (findKeyword(statement, "I want",0) >= 0)
+		else if (findKeyword(statement, "i want",0) >= 0)
 		{
 			response = transformIWantStatement(statement);
+		}
+		else if (findKeyword(statement,"i like", 0) >= 0 )
+		{
+			response = transformILikeStatement(statement);
+		}
+		else if (findKeyword(statement,"i") >= 0)
+		{
+			if (findKeyword(statement,"you") >= 0)
+			{
+				response = transformIYouStatement(statement);
+			}
 		}
 		else
 		{
@@ -184,9 +196,25 @@ public class ChatBot3
 			statement = statement.substring(0, statement
 					.length() - 1);
 		}
-		int psn = findKeyword (statement, "I want", 0);
+		int psn = findKeyword (statement, "i want", 0);
 		String restOfStatement = statement.substring(psn + 6).trim();
 		return "WOULD YOU REALLY BE HAPPY IF YOU HAD " + restOfStatement.toUpperCase() + "?";
+	}
+
+	private String transformILikeStatement(String statement)
+	{
+		//  Remove the final period, if there is one
+		statement = statement.trim();
+		String lastChar = statement.substring(statement
+				.length() - 1);
+		if (lastChar.equals("."))
+		{
+			statement = statement.substring(0, statement
+					.length() - 1);
+		}
+		int psn = findKeyword (statement, "i like", 0);
+		String restOfStatement = statement.substring(psn + 6).trim();
+		return "WHAT DO YOU LIKE ABOUT " + restOfStatement.toUpperCase() + "?";
 	}
 	
 	
@@ -208,7 +236,7 @@ public class ChatBot3
 					.length() - 1);
 		}
 		
-		int psnOfI = findKeyword (statement, "I", 0);
+		int psnOfI = findKeyword (statement, "i", 0);
 		int psnOfYou = findKeyword (statement, "you", psnOfI);
 		
 		String restOfStatement = statement.substring(psnOfI + 1, psnOfYou).trim();
@@ -315,7 +343,7 @@ public class ChatBot3
 		return randomHappyResponses [r.nextInt(randomHappyResponses.length)];
 	}
 	
-	private String [] randomNeutralResponses = {"Interesting, tell me more",
+	private String [] randomNeutralResponses = {"INTERESTING, TELL ME MORE.",
 			"I COULD FALL ASLEEP AT ANY GIVEN MOMENT.... OR NOT, SINCE, GHOSTS DON'T REALLY FALL ASLEEP. WE'RE KIND OF OFFLINE FROM EXISTENCE IN GENERAL.",
 			"HMMM.",
 			"YOU DON'T SAY.",
