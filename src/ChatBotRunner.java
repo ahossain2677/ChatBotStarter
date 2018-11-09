@@ -20,7 +20,7 @@ public class ChatBotRunner
 
 		Scanner in = new Scanner (System.in);
 		System.out.println("Welcome to the chatbot, nice to meet you.");
-		System.out.println("Type 1 to talk with ");
+		System.out.println("Type 1 to talk with someone that likes movies.");
 		System.out.println("Type 2 to talk to ");
 		System.out.println("Type 3 to speak to a ghost.");
 		String statement = in.nextLine();
