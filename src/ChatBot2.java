@@ -1,6 +1,6 @@
 
 import java.util.Random;
-
+import java.util.Scanner;
 /**
  * A program to carry on conversations with a human user.
  * This version:
@@ -11,7 +11,24 @@ public class ChatBot2
 {
     //emotion can alter the way our bot responds. Emotion can become more negative or positive over time.
     int emotion = 0;
+  public void chatLoop(String statement)
+    {
+        Scanner in = new Scanner (System.in);
+        System.out.println (getGreeting());
 
+
+        while (!statement.equals("Bye"))
+        {
+
+
+            statement = in.nextLine();
+            //getResponse handles the user reply
+            System.out.println(getResponse(statement));
+
+
+        }
+
+    }
 
     /**
      * Runs the conversation for this particular chatbot, should allow switching to other chatbots.
