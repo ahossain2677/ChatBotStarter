@@ -1,4 +1,3 @@
-package com.company;
 
 import java.util.Random;
 
@@ -270,7 +269,7 @@ public class ChatBot2
 
 
         public void getResponse3(String statement) {
-            String response = "";
+            response = "";
 
             if (statement.length() == 0) {
                 response = "Say something, please.";
@@ -290,4 +289,6 @@ public class ChatBot2
 
 
 
-            }}
+            }
+    }
+}
