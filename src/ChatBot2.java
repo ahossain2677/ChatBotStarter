@@ -146,7 +146,7 @@ public class ChatBot2
 		int psnOfYou = findKeyword (statement, "like", psnOfI);
 		
 		String restOfStatement = statement.substring(psnOfI + 1, psnOfYou).trim();
-		return "Why do you like " + restOfStatement";
+		return "Why do you like " + restOfStatement + "?";
 	}
 
 	

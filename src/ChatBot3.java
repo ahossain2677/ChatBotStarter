@@ -7,6 +7,7 @@ import java.util.Scanner;
  * @author Brooklyn Tech CS Department
  * @version September 2018
  */
+// Judy Leung
 public class ChatBot3
 {
 	//emotion can alter the way our bot responds. Emotion can become more negative or positive over time.
@@ -20,12 +21,23 @@ public class ChatBot3
 	 */
 	public void chatLoop(String statement)
 	{
+        ChatBot1 chatbot1 = new ChatBot1();
+        ChatBot2 chatbot2 = new ChatBot2();
+
 		Scanner in = new Scanner (System.in);
 		System.out.println (getGreeting());
 
 
 		while (!statement.equals("Bye"))
 		{
+            if (statement == "1")
+            {
+                chatbot1.chatLoop(statement);
+            }
+            else if (statement == "2")
+            {
+                chatbot2.chatLoop(statement);
+            }
 
 
 			statement = in.nextLine();
